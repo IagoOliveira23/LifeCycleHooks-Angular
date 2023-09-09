@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.css']
 })
-export class TitleComponent implements OnInit{
+export class TitleComponent implements OnInit, OnChanges{
 
-  nome:string = "Iago"
-  constructor(){}
+  @Input() nome:string = ''
+
+  constructor(){
+    console.log(`construtor ${this.nome}`);
+    
+  }
+
+  ngOnChanges(): void {
+    console.log(`OnChange ${this.nome}`);
+    ;
+  }
 
     ngOnInit(): void {
-      this.nome = `Olá, ${this.nome}`      
+      this.nome = this.nome + "abc"
+      console.log(`OnInit ${this.nome}`);
+            
   }
 }
