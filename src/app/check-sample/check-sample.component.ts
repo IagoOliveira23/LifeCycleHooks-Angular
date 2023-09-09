@@ -7,7 +7,17 @@ import { Component, OnInit, DoCheck, AfterContentChecked, AfterViewChecked, Afte
 })
 export class CheckSampleComponent implements OnInit, DoCheck, AfterContentChecked, AfterViewChecked, AfterViewInit{
 
+  quantidade:number = 0
+
   constructor(){}
+  
+  adicionar(){
+    this.quantidade += 1
+  }
+
+  descrementar(){
+    this.quantidade -= 1
+  }
 
   ngAfterContentChecked(): void {
     console.log("AfterContentCheked");
